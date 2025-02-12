@@ -1,0 +1,58 @@
+from flask import Flask, render_template, request, send_file
+import pandas as pd
+import os
+from datetime import datetime
+
+app = Flask(__name__)
+UPLOAD_FOLDER = 'static/uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+EXCEL_FILE = 'data.xlsx'
+
+@app.route('/')
+def index():
+    return render_template('form.html')
+
+@app.route('/submit', methods=['POST'])
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QA Inspection Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <h2>QA Inspection Data</h2>
+    
+    {% if data %}
+        <table id="inspectionTable" class="display">
+            <thead>
+                <tr>
+                    {% for column in data[0].keys() %}
+                        <th>{{ column }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for value in row.values() %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+
+    <button onclick="window.location.href='/download'">Download Excel</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#inspectionTable').DataTable();
+        });
+    </script>
+</body>
+</html>

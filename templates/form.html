@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Inspection Form</title>
+</head>
+<body>
+    <h2>Quality Inspection Form</h2>
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="vendor">Vendor Name:</label>
+        <input type="text" id="vendor" name="vendor" required><br><br>
+
+        <label for="po_number">PO Number:</label>
+        <input type="number" id="po_number" name="po_number" required><br><br>
+
+        <label for="order_qty">Order Quantity:</label>
+        <input type="number" id="order_qty" name="order_qty" required><br><br>
+
+        <label for="offer_qty">Offer Quantity:</label>
+        <input type="number" id="offer_qty" name="offer_qty"><br><br>
+
+        <label for="style">Style:</label>
+        <input type="text" id="style" name="style" required><br><br>
+
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" name="colour" required><br><br>
+
+        <label for="bulk_vs_pp">Bulk vs PP:</label>
+        <input type="file" id="bulk_vs_pp" name="bulk_vs_pp"><br><br>
+
+        <label for="barcode_washcare">Barcode Tag & Washcare:</label>
+        <input type="file" id="barcode_washcare" name="barcode_washcare"><br><br>
+
+        <label for="bulk_vs_hlp">Bulk vs HLP/GPT Report:</label>
+        <input type="file" id="bulk_vs_hlp" name="bulk_vs_hlp"><br><br>
+
+        <label for="measurement_chart">Measurement Chart:</label>
+        <input type="file" id="measurement_chart" name="measurement_chart"><br><br>
+
+        <label for="bulk_carton">Bulk Carton/Carton Opening/Carton Marking:</label>
+        <input type="file" id="bulk_carton" name="bulk_carton"><br><br>
+
+        <label for="sample_size">Sample Size:</label>
+        <input type="number" id="sample_size" name="sample_size" required><br><br>
+
+        <label for="major_defect">Type of Major Defect:</label>
+        <input type="text" id="major_defect" name="major_defect"><br><br>
+
+        <label for="major_defect_count">Count of Major Defect:</label>
+        <input type="number" id="major_defect_count" name="major_defect_count"><br><br>
+
+        <label for="minor_defect">Type of Minor Defect:</label>
+        <input type="text" id="minor_defect" name="minor_defect"><br><br>
+
+        <label for="minor_defect_count">Count of Minor Defect:</label>
+        <input type="number" id="minor_defect_count" name="minor_defect_count"><br><br>
+
+        <label for="defect_picture">Defect Picture:</label>
+        <input type="file" id="defect_picture" name="defect_picture"><br><br>
+
+        <label for="inspection_result">Inspection Result:</label>
+        <select id="inspection_result" name="inspection_result" required>
+            <option value="Pass">Pass</option>
+            <option value="Fail">Fail</option>
+            <option value="Hold">Hold</option>
+        </select><br><br>
+
+        <label for="qa_remarks">QA Remarks:</label>
+        <textarea id="qa_remarks" name="qa_remarks"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
